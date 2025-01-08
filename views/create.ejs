@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager System</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  #delete-task {
+    background-color: #dc3545;
+  }
+  
+  #delete-task:hover {
+    background-color: #c82333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  ul li:hover {
+    background-color: #e9ecef;
+  }
+  
+  .add-task-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .add-task-btn:hover {
+    background-color: #0056b3;
+  }
+  
+</style>
+<body>
+    <div class="container">
+        <h1 id="task-title">Create New Task</h1>
+    
+        <!-- Task creation/edit form -->
+        <form id="task-form" action="/createsubmit" method="POST">
+          <input type="hidden" id="task-id">
+          <label for="task-name">Task Title:</label>
+          <input type="text" id="task-name" name="title" required>
+    
+          <label for="task-description">Description:</label>
+          <input type="text" id="task-description" name= "description"required>
+    
+          <label for="task-status">Status:</label>
+          <select id="task-status" name="status">
+            <option value="Task Still Pending">Pending</option>
+            <option value="Task In-Progress">In Progress</option>
+            <option value="Task Completed">Completed</option>
+          </select>
+          <!-- Save and delete buttons -->
+          <button type="submit" id="submit-task">Save Task</button> 
+          <button type="button" id="delete-task" style="display:none;">Task Completed</button>
+        </form>
+        <br><a href="/viewall"><button>View All Tasks</button></a>
+      </div>
+</body>
+</html>
